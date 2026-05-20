@@ -14,13 +14,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetId = link.getAttribute('href');
             const targetSection = document.querySelector(targetId);
 
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-
             if (nav && nav.classList.contains('open')) {
                 nav.classList.remove('open');
                 navToggle.setAttribute('aria-expanded', 'false');
+            }
+
+            if (targetSection) {
+                // Offset scroll so sticky nav does not cover section heading.
+                requestAnimationFrame(() => {
+                    const navHeight = nav ? nav.getBoundingClientRect().height : 0;
+                    const extraGap = 12;
+                    const targetTop = targetSection.getBoundingClientRect().top + window.scrollY;
+
+                    window.scrollTo({
+                        top: Math.max(targetTop - navHeight - extraGap, 0),
+                        behavior: 'smooth'
+                    });
+                });
             }
         });
     });
