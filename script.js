@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     syncSectionScrollOffset();
     window.addEventListener('resize', syncSectionScrollOffset);
 
-    // Smooth scroll for nav links
     navLinks.forEach((link) => {
         link.addEventListener('click', (event) => {
             event.preventDefault();
@@ -33,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (targetSection) {
-                // Keep section heading clear of sticky nav on first load and later navigations.
+               
                 syncSectionScrollOffset();
                 targetSection.scrollIntoView({
                     behavior: 'smooth',
@@ -65,8 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Animate sections when they enter the viewport
-    // Use Intersection Observer for efficient section reveal
+
     const observerOptions = {
         threshold: 0.1
     };
@@ -83,10 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(section => {
         sectionObserver.observe(section);
     });
-    // Define revealOnScroll to avoid ReferenceError
     function revealOnScroll() {
-        // Example: Add logic to reveal sections on scroll if needed
-        // This can be left empty or customized as per your requirements
+
     }
     if (footerYearElement) {
         const currentYear = new Date().getFullYear();
