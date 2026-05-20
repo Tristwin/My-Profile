@@ -6,6 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const navToggle = document.querySelector('.nav-toggle');
     const nav = document.querySelector('nav');
     const projectTiles = document.querySelectorAll('.project-tile');
+    const SCROLL_GAP = 12;
+
+    function syncSectionScrollOffset() {
+        const navHeight = nav ? nav.getBoundingClientRect().height : 0;
+        const offset = Math.max(Math.ceil(navHeight + SCROLL_GAP), 0);
+
+        sections.forEach((section) => {
+            section.style.scrollMarginTop = `${offset}px`;
+        });
+    }
+
+    syncSectionScrollOffset();
+    window.addEventListener('resize', syncSectionScrollOffset);
 
     // Smooth scroll for nav links
     navLinks.forEach((link) => {
@@ -20,16 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (targetSection) {
-                // Offset scroll so sticky nav does not cover section heading.
-                requestAnimationFrame(() => {
-                    const navHeight = nav ? nav.getBoundingClientRect().height : 0;
-                    const extraGap = 12;
-                    const targetTop = targetSection.getBoundingClientRect().top + window.scrollY;
-
-                    window.scrollTo({
-                        top: Math.max(targetTop - navHeight - extraGap, 0),
-                        behavior: 'smooth'
-                    });
+                // Keep section heading clear of sticky nav on first load and later navigations.
+                syncSectionScrollOffset();
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
             }
         });
