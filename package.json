@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.1",
+    "tailwindcss": "^4.3.1"
+  },
+  "name": "my-profile",
+  "version": "1.0.0",
+  "description": "Employee Profile\r Personal use repo for my employment journey",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tristwin/My-Profile.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Tristwin/My-Profile/issues"
+  },
+  "homepage": "https://github.com/Tristwin/My-Profile#readme"
+}

@@ -1,72 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css">
-    <title>Profile</title>
+    <link rel="stylesheet" href="./dist/output.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>Work Portfolio - Marc Daniel A. Flores</title>
 </head>
-<body>
-    <nav>
-        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
-        <ul id="nav-list">
-            <li><a href="#profile-info">Profile Information</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-        </ul>
+<body class="min-h-screen bg-slate-50 font-sans text-slate-800 antialiased">
+    <nav class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
+        <div class="mx-auto grid max-w-5xl grid-cols-[1fr_auto] items-center gap-x-4 px-4 py-3 sm:px-6">
+            <span class="col-start-1 row-start-1 text-sm font-semibold tracking-wide text-slate-900">WORK PORTFOLIO</span>
+            <button
+                type="button"
+                class="nav-toggle col-start-2 row-start-1 inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-50 md:hidden"
+                aria-expanded="false"
+                aria-controls="nav-list"
+            >
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                Menu
+            </button>
+            <ul
+                id="nav-list"
+                class="nav-list col-span-2 row-start-2 mt-2 hidden flex-col gap-1 md:col-span-1 md:col-start-2 md:row-start-1 md:mt-0 md:flex md:flex-row md:items-center md:justify-end md:gap-2"
+            >
+                <li>
+                    <a href="#profile-info" class="block rounded-md px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-300 hover:text-slate-900">Profile Information</a>
+                </li>
+                <li>
+                    <a href="#experience" class="block rounded-md px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-300 hover:text-slate-900">Experience</a>
+                </li>
+                <li>
+                    <a href="#projects" class="block rounded-md px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-300 hover:text-slate-900">Projects</a>
+                </li>
+            </ul>
+        </div>
     </nav>
 
-    <main>
-        <section id="profile-info" class="hero">
-            <div class="hero-left">
-                <img src="profile.png" alt="Profile Image" class="profile-image">
+    <main class="mx-auto max-w-5xl space-y-8 px-4 pb-16 pt-24 sm:px-6">
+        <section
+            id="profile-info"
+            class="section-reveal flex flex-col items-center gap-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm opacity-0 translate-y-4 transition-all duration-700 ease-out sm:p-10 lg:flex-row lg:items-start"
+        >
+            <div class="shrink-0">
+                <img
+                    src="src/profile.png"
+                    alt="Profile Image"
+                    class="h-48 w-48 rounded-2xl border-4 border-blue-500 object-cover shadow-lg ring-2 ring-slate-200 sm:h-56 sm:w-56"
+                />
             </div>
-            <div class="hero-right">
-                <h1>MARC DANIEL A. FLORES</h1>
-                <p>Dedicated and adaptable BS Information Technology graduate with experience in IT support, software troubleshooting, hardware upgrading, and data/report writing gained through internship experience. Knowledgeable in web development, particularly front-end programming, with skills in HTML, CSS, PHP, SQL, and Laravel. Experienced in troubleshooting Windows-based systems and providing technical assistance. A fast learner, team player, and hardworking individual who can work effectively under pressure while continuously improving technical and problem-solving skills to contribute to organizational success.</p>
+            <div>
+                <h1 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl text-center ">MARC DANIEL A. FLORES</h1>
+                <p class="mt-4 text-base leading-relaxed text-slate-600">
+                    Dedicated and adaptable BS Information Technology graduate with experience in IT support, software troubleshooting, hardware upgrading, and data/report writing gained through internship experience. Knowledgeable in web development, particularly front-end programming, with skills in HTML, CSS, PHP, SQL, and Laravel. Experienced in troubleshooting Windows-based systems and providing technical assistance. A fast learner, team player, and hardworking individual who can work effectively under pressure while continuously improving technical and problem-solving skills to contribute to organizational success.
+                </p>
             </div>
         </section>
 
-        <section id="experience" class="experience-card">
-            <h2>WORK EXPERIENCE</h2>
-            <h3>Saint Benilde International School (Calamba) Inc.</h3>
-            <h5>July 01, 2025 - April 15, 2026</h5>
-            <p>Teaching IT related Subjects to Senior High School Students.</p><br>
-            <h3>Regional Trial Court Branch 36 - Calamba</h3>
-            <h5>December 2024 - March 2025 (OJT 600 Hours)</h5>
-            <p>IT Support and Technical Assistance to the Staff of the RTC Branch 36.</p>
+        <section
+            id="experience"
+            class="section-reveal rounded-2xl border border-slate-200 bg-white p-6 shadow-sm opacity-0 translate-y-4 transition-all duration-700 ease-out sm:p-10"
+        >
+            <h2 class="text-center text-2xl font-bold uppercase tracking-wide text-slate-900">Work Experience</h2>
+            <div class="mt-6 space-y-8">
+                <div class="border-l-4 border-blue-500 pl-4">
+                    <h3 class="text-lg font-semibold text-slate-900">Saint Benilde International School (Calamba) Inc.</h3>
+                    <p class="mt-1 text-sm font-medium text-blue-600">July 01, 2025 – April 15, 2026</p>
+                    <p class="mt-2 text-slate-600">Teaching IT related Subjects to Senior High School Students.</p>
+                </div>
+                <div class="border-l-4 border-blue-500 pl-4">
+                    <h3 class="text-lg font-semibold text-slate-900">Regional Trial Court Branch 36 - Calamba</h3>
+                    <p class="mt-1 text-sm font-medium text-blue-600">December 2024 – March 2025 (OJT 600 Hours)</p>
+                    <p class="mt-2 text-slate-600">IT Support and Technical Assistance to the Staff of the RTC Branch 36.</p>
+                </div>
+            </div>
         </section>
 
-        <section id="projects" class="projects-card">
-            <h2>PROJECTS</h2>
-            <div class="projects-grid">
+        <section
+            id="projects"
+            class="section-reveal rounded-2xl border border-slate-200 bg-white p-6 shadow-sm opacity-0 translate-y-4 transition-all duration-700 ease-out sm:p-10"
+        >
+            <h2 class="text-center text-2xl font-bold uppercase tracking-wide text-slate-900">Projects</h2>
+            <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 <article
-                    class="project-tile"
+                    class="project-tile cursor-pointer rounded-xl border border-slate-200 bg-slate-50 p-5 text-sm leading-relaxed text-slate-600 shadow-sm transition hover:border-blue-300 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                     role="button"
                     tabindex="0"
                 >
-                    <p><b>KNOW-IT</b> - I used mysql and php for this project which is a LAN Based System containing links of websites (like W3SCHOOL) that will help IT, CS and Other Courses that involves coding.</p>
+                    <p><span class="font-bold text-slate-900">KNOW-IT</span> – I used mysql and php for this project which is a LAN Based System containing links of websites (like W3SCHOOL) that will help IT, CS and Other Courses that involves coding.</p>
                 </article>
                 <article
-                    class="project-tile"
+                    class="project-tile cursor-pointer rounded-xl border border-slate-200 bg-slate-50 p-5 text-sm leading-relaxed text-slate-600 shadow-sm transition hover:border-blue-300 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                     role="button"
                     tabindex="0"
                 >
-                    <p><b>CCC-SSC E-Voting System</b> - An online School Voting system that can be use by the SSC and other Student Organization inside the School. I worked as a Front-End Developer in this project for our Capstone.</p>
+                    <p><span class="font-bold text-slate-900">CCC-SSC E-Voting System</span> – An online School Voting system that can be use by the SSC and other Student Organization inside the School. I worked as a Front-End Developer in this project for our Capstone.</p>
                 </article>
                 <article
-                    class="project-tile"
+                    class="project-tile cursor-pointer rounded-xl border border-slate-200 bg-slate-50 p-5 text-sm leading-relaxed text-slate-600 shadow-sm transition hover:border-blue-300 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 sm:col-span-2 lg:col-span-1"
                     role="button"
                     tabindex="0"
                 >
-                    <p><b>Case Search System</b> - is another LAN Based Systemi that i made using php and mysql for the RTC Branch 36 where i attended as an Intern.</p>
+                    <p><span class="font-bold text-slate-900">Case Search System</span> – is another LAN Based Systemi that i made using php and mysql for the RTC Branch 36 where i attended as an Intern.</p>
                 </article>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>© 2026 My Landing Page. All rights reserved.</p>
+    <footer class="border-t border-slate-200 bg-white py-6 text-center text-sm text-slate-500">
+        <p>© 2026 Work Portfolio - Marc Daniel A. Flores. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
