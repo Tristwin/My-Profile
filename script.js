@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const offset = Math.max(Math.ceil(navHeight + SCROLL_GAP), 0);
 
         sections.forEach((section) => {
-            section.style.scrollMarginTop = `${offset}px`;
+            section.classList.add('opacity-100', 'translate-y-0');
         });
     }
 
